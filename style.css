@@ -201,7 +201,7 @@ body { background: #0b0f14; color: #e5e7eb; overflow-x: hidden; }
 /* =========================================
    9. ANIMAÇÕES E RESPONSIVIDADE FINAL
    ========================================= */
-.reveal { opacity: 0; transform: translateY(10px); transition: 0.4s all; }
+.reveal { opacity: 0; transform: translateY(5px); transition: 0.1s all; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 768px) {
