@@ -1,0 +1,406 @@
+/* =========================================
+   1. RESET E PADRÕES GERAIS
+   ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background: #0b0f14; color: #e5e7eb; overflow-x: hidden; }
+
+/* HERO - ESTILO CARD COMPACTO */
+.hero { 
+  padding: 60px 20px 40px;
+  display: flex;
+  justify-content: center;
+  background: radial-gradient(circle at center, #1e293b 0%, #0b0f14 100%);
+}
+
+.hero-card {
+  background: #111827;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  padding: 40px;
+  border-radius: 24px;
+  max-width: 850px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.hero h1 { 
+  font-size: 48px; 
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.hero p { 
+  font-size: 17px; 
+  color: #9ca3af;
+  max-width: 600px; 
+  margin: 0 auto 25px;
+  line-height: 1.5;
+}
+
+/* MINI FEATURES EM LINHA */
+.hero-mini-features {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 20px;
+}
+
+.hero-mini-features span {
+  font-size: 14px;
+  color: #22c55e;
+  font-weight: 600;
+  background: rgba(34, 197, 94, 0.05);
+  padding: 5px 12px;
+  border-radius: 8px;
+}
+
+/* AJUSTES PARA CELULAR */
+@media (max-width: 768px) {
+  .hero { padding: 40px 15px; }
+  .hero-card { padding: 30px 20px; }
+  .hero h1 { font-size: 30px; }
+  .hero-mini-features { gap: 10px; }
+  .hero-mini-features span { font-size: 12px; }
+}
+/* =========================================
+   3. BOTÕES E AÇÕES
+   ========================================= */
+.btn-primary, .btn-checkout { background: #36ff04; color: #181c4d; padding: 18px 30px; border-radius: 12px; font-weight: 700; text-decoration: none; display: inline-block; transition: 0.3s; text-align: center; border: none; cursor: pointer; }
+.btn-checkout { width: 100%; font-size: 18px; }
+
+.btn-whatsapp { background: #25d366; color: #fff; text-decoration: none; padding: 18px; border-radius: 50px; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 700; max-width: 350px; margin: 20px auto; }
+.btn-whatsapp img { width: 24px; filter: brightness(0) invert(1); }
+
+/* =========================================
+   4. SEÇÕES DE MÍDIA (VÍDEO E IMAGENS)
+   ========================================= */
+.apresentacao { max-width: 900px; margin: 0 auto 80px; padding: 0 20px; text-align: center; }
+.video-container { width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 15px; overflow: hidden; margin-top: 20px; border: 1px solid #1f2933; }
+.video-container video { width: 100%; height: 100%; }
+
+.image-scroll { display: flex; gap: 15px; overflow-x: auto; padding: 20px 0; scrollbar-width: none; scroll-snap-type: x mandatory; }
+.image-scroll::-webkit-scrollbar { display: none; }
+.image-scroll img { width: 85%; flex: 0 0 85%; max-width: 400px; border-radius: 15px; border: 1px solid #1f2933; scroll-snap-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.4); margin: 0 auto; }
+
+/* =========================================
+   5. DEPOIMENTOS (CONFIGURADO PARA CELULAR LADO A LADO)
+   ========================================= */
+.depoimentos { padding: 80px 20px; background: linear-gradient(180deg, #0b0f14 0%, #0f172a 100%); }
+.depoimentos h2 { text-align: center; color: #22c55e; margin-bottom: 30px; font-size: 32px; font-weight: 800; }
+
+.depoimentos-grid { 
+    display: flex; 
+    gap: 20px; 
+    overflow-x: auto; 
+    padding: 20px 10px; 
+    scrollbar-width: none; 
+    scroll-snap-type: x mandatory; 
+}
+.depoimentos-grid::-webkit-scrollbar { display: none; }
+
+.depoimento-card { 
+    flex: 0 0 85%; /* Ocupa 85% da tela no celular para mostrar o próximo */
+    background: #111827; 
+    border: 1px solid #1f2933; 
+    padding: 30px; 
+    border-radius: 20px; 
+    scroll-snap-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.depoimento-perfil { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.depoimento-perfil img { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; background: #fff; border: 2px solid #22c55e; padding: 2px; }
+.depoimento-perfil strong { color: #fff; font-size: 17px; display: block; }
+.depoimento-perfil span { color: #22c55e; font-size: 12px; font-weight: 700; text-transform: uppercase; }
+.depoimento-card p { color: #9ca3af; font-size: 15px; line-height: 1.6; font-style: italic; margin-bottom: 20px; }
+.estrelas { color: #fbbf24; font-size: 16px; letter-spacing: 2px; }
+
+/* =========================================
+   6. CHECKOUT E PREÇO
+   ========================================= */
+.checkout-container { padding: 80px 20px; display: flex; justify-content: center; }
+.pricing-card { background: #0f172a; border: 2px solid #22c55e; border-radius: 24px; padding: 50px 30px; width: 100%; max-width: 450px; position: relative; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+.discount-badge { position: absolute; top: -15px; right: -10px; background: #ef4444; color: #fff; padding: 8px 15px; border-radius: 8px; font-weight: 800; transform: rotate(10deg); border: 2px solid #fff; z-index: 10; }
+.price-box { margin: 30px 0; }
+.old-price { display: block; margin-bottom: 5px; color: #94a3b8; text-decoration: line-through; }
+.current-price .amount { font-size: 64px; font-weight: 800; color: #22c55e; letter-spacing: -2px; }
+.installments { color: #94a3b8; font-size: 14px; margin-bottom: 20px; }
+.guarantee { margin-top: 25px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #94a3b8; font-size: 14px; }
+
+/* =========================================
+   7. GRID ITENS RECEBIDOS E FAQ
+   ========================================= */
+.recebe-grid { display: flex; gap: 20px; overflow-x: auto; padding: 20px; scrollbar-width: none; }
+.recebe-item { flex: 0 0 280px; background: #111827; border: 1px solid #1f2933; padding: 20px; border-radius: 15px; text-align: center; }
+.recebe-item img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
+
+.faq { max-width: 800px; margin: 60px auto; padding: 0 20px; }
+.faq h2 { color: #22c55e; text-align: center; margin-bottom: 30px; }
+.faq details { background: #111827; border: 1px solid #1f2933; padding: 15px; border-radius: 10px; margin-bottom: 10px; }
+
+.teste-gratis-box { text-align: center; padding: 40px 20px; margin: 0 auto; max-width: 600px; }
+.teste-gratis-box span { display: block; margin-top: 15px; color: #9ca3af; font-size: 14px; }
+
+/* FOOTER PROFISSIONAL */
+.footer {
+  background: #020617; /* Um azul quase preto para diferenciar do fundo */
+  padding: 60px 20px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 80px;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-column h3 { font-size: 24px; margin-bottom: 15px; }
+.footer-column h3 span { color: #22c55e; }
+.footer-column h4 { font-size: 16px; margin-bottom: 20px; color: #9ca3af; text-transform: uppercase; letter-spacing: 1px; }
+.footer-column p { color: #9ca3af; line-height: 1.6; font-size: 14px; }
+
+/* Contato */
+.footer-contact { margin-top: 20px; }
+.footer-contact p { color: #fff; margin-bottom: 5px; }
+
+/* Badges de Segurança */
+.security-badges-v2 { display: flex; gap: 20px; }
+.badge-v2 { display: flex; align-items: center; gap: 10px; }
+.badge-v2 img { width: 32px; height: 32px; }
+.badge-v2 span { font-size: 12px; color: #d1d5db; line-height: 1.2; }
+
+/* Pagamento */
+.payment-methods { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; }
+.payment-methods img { height: 24px; filter: grayscale(0.2) brightness(0.9); transition: 0.3s; }
+.payment-methods img:hover { filter: grayscale(0); brightness: 1.1; }
+.mercado-pago-text { font-size: 12px !important; opacity: 0.7; }
+
+/* Bottom */
+.footer-bottom {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+.container-legal p { font-size: 12px; color: #6b7280; margin-bottom: 5px; }
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .footer-container { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+  .security-badges-v2, .payment-methods { justify-content: center; }
+}
+
+/* =========================================
+   9. ANIMAÇÕES E RESPONSIVIDADE FINAL
+   ========================================= */
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.6s all; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; text-align: center; padding: 40px 20px; }
+    .hero h1 { font-size: 32px; }
+    .hero li { text-align: left; }
+    .current-price .amount { font-size: 50px; }
+}
+
+@media (min-width: 900px) {
+    .depoimentos-grid { 
+        display: grid; 
+        grid-template-columns: repeat(2, 1fr); /* No PC ficam lado a lado fixos */
+        overflow-x: hidden; 
+        justify-content: center; 
+    }
+    .depoimento-card { flex: 1; }
+}
+/* 1. Diminuir a distância embaixo do vídeo */
+.apresentacao { 
+  max-width: 900px; 
+  margin: 0 auto 30px; /* Mudei de 80px para 30px */
+  padding: 0 20px; 
+  text-align: center; 
+}
+
+/* 2. Diminuir o espaço em cima do card de preço */
+.checkout-container { 
+  padding: 20px 20px 60px; /* Reduzi o primeiro valor (topo) de 80px para 20px */
+  display: flex; 
+  justify-content: center; 
+}
+/* SEÇÃO ANTES E DEPOIS - ESTILO CARROSSEL NO CELULAR */
+.beneficios-reais {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.beneficios-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.beneficios-header h2 {
+  color: #fff;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.comparativo {
+  display: flex; /* Mudança de Grid para Flex para permitir o scroll */
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+.comparativo::-webkit-scrollbar {
+  display: none;
+}
+
+.card-dor, .card-vitoria {
+  flex: 0 0 85%; /* No celular cada um ocupa 85% da largura */
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid #1f2933;
+  scroll-snap-align: center;
+}
+
+.card-dor { background: rgba(239, 68, 68, 0.08); border-color: rgba(239, 68, 68, 0.2); }
+.card-dor h3 { color: #ef4444; margin-bottom: 15px; font-size: 20px; }
+
+.card-vitoria { background: rgba(34, 197, 94, 0.08); border-color: rgba(34, 197, 94, 0.3); }
+.card-vitoria h3 { color: #22c55e; margin-bottom: 15px; font-size: 20px; }
+
+.comparativo li {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #d1d5db;
+  line-height: 1.4;
+  list-style: none;
+}
+
+/* AJUSTE PARA COMPUTADOR (LADO A LADO FIXO) */
+@media (min-width: 900px) {
+  .comparativo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow-x: hidden;
+    gap: 30px;
+  }
+  .card-dor, .card-vitoria {
+    flex: none;
+  }
+}
+/* FUNDO PROFISSIONAL COM PROFUNDIDADE */
+body { 
+  background-color: #0b0f14;
+  /* Cria uma luz suave que parece vir do centro da tela */
+  background-image: 
+    radial-gradient(circle at 50% 0%, #1e293b 0%, transparent 50%),
+    radial-gradient(circle at 100% 50%, #0f172a 0%, transparent 40%),
+    radial-gradient(circle at 0% 100%, #111827 0%, transparent 40%);
+  background-attachment: fixed; /* O fundo fica parado enquanto o conteúdo rola */
+  color: #e5e7eb; 
+  overflow-x: hidden; 
+}
+/* APLICA UM LEVE BRILHO NAS SEÇÕES PARA NÃO FICAREM NO PRETO PURO */
+.apresentacao, .beneficios-reais, .faq, .recebe {
+  background: rgba(255, 255, 255, 0.02); /* Quase invisível, mas tira o preto puro */
+  border-radius: 40px;
+  padding: 60px 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Linha muito fina de separação */
+}
+
+/* DESTAQUE PARA OS TÍTULOS */
+h2 {
+  text-shadow: 0 0 20px rgba(34, 197, 94, 0.2); /* Um leve brilho verde atrás dos títulos */
+}
+/* AJUSTE DE ESPAÇAMENTO ENTRE SEÇÕES */
+.apresentacao, 
+.beneficios-reais, 
+.checkout-container, 
+.teste-gratis-box, 
+.depoimentos, 
+.recebe, 
+.faq {
+    margin: 0 auto; /* Remove as margens que afastam as seções */
+    padding: 40px 20px; /* Mantém um respiro interno equilibrado */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03); /* Divisão quase invisível */
+}
+
+/* Garante que o Hero não empurre o vídeo para longe */
+.hero {
+    padding-bottom: 20px;
+}
+
+/* Remove o espaço extra no topo da apresentação */
+.apresentacao {
+    padding-top: 20px;
+    margin-top: 0;
+}
+
+/* Ajuste específico para o vídeo não ficar colado no título dele */
+.video-container {
+    margin-top: 15px;
+}
+
+/* Remove espaços vazios do container dos depoimentos */
+.depoimentos .container {
+    padding: 0;
+}
+/* SELO DE DESCONTO IMPACTANTE */
+.discount-badge {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: linear-gradient(135deg, #ff0000, #b30000); /* Vermelho Intenso */
+    color: white;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 800;
+    font-size: 18px;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+    border: 2px solid white;
+    z-index: 10;
+    transform: rotate(15deg); /* Deixa o selo "tortinho" para parecer um adesivo */
+    animation: pulse-badge 2s infinite; /* Animação de pulso */
+}
+
+.discount-badge::after {
+    content: 'OFF';
+    font-size: 10px;
+    display: block;
+    margin-top: -5px;
+}
+
+/* ANIMAÇÃO DE PULSO PARA ATRAIR O OLHAR */
+@keyframes pulse-badge {
+    0% { transform: rotate(15deg) scale(1); }
+    50% { transform: rotate(15deg) scale(1.1); }
+    100% { transform: rotate(15deg) scale(1); }
+}
+
+/* CERTIFIQUE-SE QUE O CARD É O PONTO DE REFERÊNCIA */
+.pricing-card {
+    position: relative; /* Isso é essencial para o selo não voar para fora do card */
+    background: #111827;
+    border: 2px solid #22c55e; /* Borda verde para destacar o card de venda */
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+}
