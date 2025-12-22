@@ -404,3 +404,39 @@ h2 {
     border-radius: 20px;
     text-align: center;
 }
+/* ============================= */
+/* INDICADOR DE SCROLL (SETA) */
+/* ============================= */
+
+.scroll-indicator {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -30px;
+  margin-bottom: 40px;
+}
+
+.scroll-indicator span {
+  width: 26px;
+  height: 26px;
+  border-left: 2px solid #22c55e;
+  border-bottom: 2px solid #22c55e;
+  transform: rotate(-45deg);
+  animation: scrollDown 1.6s infinite;
+  opacity: 0.7;
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translate(-10px, 10px);
+    opacity: 0;
+  }
+}
+
