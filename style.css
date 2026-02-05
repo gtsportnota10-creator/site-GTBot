@@ -1,132 +1,257 @@
 /* =========================================
-   1. RESET E PADRÕES GERAIS
-   ========================================= */
+   1. RESET E PADRÕES GERAIS
+   ========================================= */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
-body { 
-    background-color: #0b0f14;
-    background-image: 
-        radial-gradient(circle at 50% 0%, #1e293b 0%, transparent 50%),
-        radial-gradient(circle at 100% 50%, #0f172a 0%, transparent 40%),
-        radial-gradient(circle at 0% 100%, #111827 0%, transparent 40%);
-    background-attachment: fixed;
-    color: #e5e7eb; 
-    overflow-x: hidden; 
+body { 
+    background-color: #0b0f14;
+    background-image: 
+        radial-gradient(circle at 50% 0%, #1e293b 0%, transparent 50%),
+        radial-gradient(circle at 100% 50%, #0f172a 0%, transparent 40%),
+        radial-gradient(circle at 0% 100%, #111827 0%, transparent 40%);
+    background-attachment: fixed;
+    color: #e5e7eb; 
+    overflow-x: hidden; 
 }
 
 /* =========================================
-   2. HERO (NOME ATUALIZADO)
-   ========================================= */
-.hero { padding: 60px 20px 40px; display: flex; justify-content: center; }
+   2. HERO E CABEÇALHO
+   ========================================= */
+.hero { 
+    padding: 60px 20px 40px;
+    display: flex;
+    justify-content: center;
+}
 
 .hero-card {
-    background: #111827;
-    border: 1px solid rgba(34, 197, 94, 0.2);
-    padding: 40px;
-    border-radius: 24px;
-    max-width: 850px;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    background: #111827;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    padding: 40px;
+    border-radius: 24px;
+    max-width: 850px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
 }
 
-.hero h1 { font-size: 42px; font-weight: 800; color: #fff; margin-bottom: 15px; line-height: 1.1; }
-.hero h1 span { color: #22c55e; font-size: 26px; display: block; margin-top: 10px; font-weight: 600; }
-.hero p { font-size: 17px; color: #9ca3af; max-width: 600px; margin: 0 auto; line-height: 1.5; }
-
-/* =========================================
-   3. VITRINE DE FOTOS (NOVO)
-   ========================================= */
-.fotos-vitrine { padding: 20px; max-width: 1100px; margin: 0 auto; }
-.fotos-container { 
-    display: flex; 
-    gap: 15px; 
-    overflow-x: auto; 
-    padding-bottom: 20px;
-    scrollbar-width: none; /* Esconde scroll no Firefox */
+.hero h1 { 
+    font-size: 48px; 
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 15px;
+    line-height: 1.1;
 }
-.fotos-container::-webkit-scrollbar { display: none; } /* Esconde scroll no Chrome */
 
-.foto-card { flex: 0 0 220px; text-align: center; }
-.foto-card img { width: 100%; border-radius: 12px; border: 2px solid #1f2933; transition: 0.3s; }
-.foto-card span { display: block; margin-top: 8px; color: #22c55e; font-weight: 700; font-size: 13px; }
+.hero h1 span { color: #22c55e; }
+
+.hero p { 
+    font-size: 17px; 
+    color: #9ca3af;
+    max-width: 600px; 
+    margin: 0 auto 25px;
+    line-height: 1.5;
+}
+
+.hero-mini-features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 20px;
+}
+
+.hero-mini-features span {
+    font-size: 14px;
+    color: #22c55e;
+    font-weight: 600;
+    background: rgba(34, 197, 94, 0.05);
+    padding: 5px 12px;
+    border-radius: 8px;
+}
+
+/* INDICADOR DE SCROLL */
+.scroll-indicator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: -30px;
+    margin-bottom: 40px;
+}
+
+.scroll-indicator span {
+    width: 26px;
+    height: 26px;
+    border-left: 2px solid #22c55e;
+    border-bottom: 2px solid #22c55e;
+    transform: rotate(-45deg);
+    animation: scrollDown 1.6s infinite;
+    opacity: 0.7;
+}
+
+@keyframes scrollDown {
+    0% { transform: rotate(-45deg) translate(0, 0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: rotate(-45deg) translate(-10px, 10px); opacity: 0; }
+}
 
 /* =========================================
-   4. VÍDEO E DESCRIÇÃO TÉCNICA
-   ========================================= */
+   3. BOTÕES E AÇÕES
+   ========================================= */
+.btn-primary, .btn-checkout { 
+    background: #36ff04; 
+    color: #181c4d; 
+    padding: 18px 30px; 
+    border-radius: 12px; 
+    font-weight: 700; 
+    text-decoration: none; 
+    display: inline-block; 
+    transition: 0.3s; 
+    text-align: center; 
+    border: none; 
+    cursor: pointer; 
+}
+.btn-checkout { width: 100%; font-size: 18px; }
+
+.btn-whatsapp { 
+    background: #25d366; 
+    color: #fff; 
+    text-decoration: none; 
+    padding: 18px; 
+    border-radius: 50px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px; 
+    font-weight: 700; 
+    max-width: 350px; 
+    margin: 20px auto; 
+}
+.btn-whatsapp img { width: 24px; filter: brightness(0) invert(1); }
+
+/* =========================================
+   4. SEÇÕES DE MÍDIA (VÍDEO)
+   ========================================= */
 .apresentacao { max-width: 900px; margin: 0 auto 30px; padding: 20px; text-align: center; }
-.video-container { 
-    width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 15px; 
-    overflow: hidden; margin-top: 20px; border: 1px solid #22c55e; 
-    box-shadow: 0 10px 30px rgba(34, 197, 94, 0.1);
+.video-container { 
+    width: 100%; 
+    aspect-ratio: 16/9; 
+    background: #000; 
+    border-radius: 15px; 
+    overflow: hidden; 
+    margin-top: 20px; 
+    border: 1px solid #1f2933; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 .video-container video { width: 100%; height: 100%; }
 
-/* Descrição debaixo do vídeo */
-.texto-descritivo {
-    margin-top: 30px; text-align: left; padding: 25px;
-    background: rgba(255, 255, 255, 0.03); border-radius: 15px;
-    border-left: 4px solid #22c55e;
+/* =========================================
+   5. ANTES E DEPOIS (BENEFÍCIOS)
+   ========================================= */
+.beneficios-reais { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
+.beneficios-header { text-align: center; margin-bottom: 30px; }
+.beneficios-header h2 { color: #fff; font-size: 26px; line-height: 1.2; text-shadow: 0 0 20px rgba(34, 197, 94, 0.2); }
+
+.comparativo {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
 }
-.texto-descritivo h3 { color: #fff; margin-bottom: 10px; }
-.texto-descritivo p { color: #9ca3af; line-height: 1.7; font-size: 16px; }
+.comparativo::-webkit-scrollbar { display: none; }
+
+.card-dor, .card-vitoria {
+    flex: 0 0 85%;
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid #1f2933;
+    scroll-snap-align: center;
+}
+.card-dor { background: rgba(239, 68, 68, 0.08); border-color: rgba(239, 68, 68, 0.2); }
+.card-vitoria { background: rgba(34, 197, 94, 0.08); border-color: rgba(34, 197, 94, 0.3); }
+.card-dor h3 { color: #ef4444; margin-bottom: 15px; font-size: 20px; }
+.card-vitoria h3 { color: #22c55e; margin-bottom: 15px; font-size: 20px; }
 
 /* =========================================
-   5. CHECKOUT E PREÇOS (LADO A LADO)
-   ========================================= */
-.checkout-container { padding: 40px 20px; max-width: 1100px; margin: 0 auto; }
-
-.pricing-grid { 
-    display: flex; /* Mudado de Grid para Flex para forçar lado a lado */
-    gap: 15px; 
-    overflow-x: auto; 
-    padding: 10px;
-    scrollbar-width: none;
-}
-.pricing-grid::-webkit-scrollbar { display: none; }
-
-.pricing-card { 
-    flex: 0 0 300px; /* Largura fixa para os cards nos dispositivos */
-    background: #0f172a; border: 1px solid rgba(34, 197, 94, 0.3); 
-    border-radius: 24px; padding: 30px 20px; position: relative; text-align: center;
-}
-.pricing-card.featured { border: 2px solid #22c55e; background: #111e36; transform: scale(1.03); }
-
-.discount-badge {
-    position: absolute; top: -15px; right: -15px; background: #ff0000;
-    color: white; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center;
-    border-radius: 50%; font-weight: 800; font-size: 14px; border: 2px solid white;
-}
-
-.price-box .amount { font-size: 48px; font-weight: 800; color: #22c55e; }
-.btn-checkout { 
-    background: #36ff04; color: #000; padding: 15px; border-radius: 12px; 
-    font-weight: 800; text-decoration: none; display: block; margin-top: 20px;
-}
-
-/* =========================================
-   6. DEPOIMENTOS, FAQ E FOOTER
-   ========================================= */
-/* Mantendo sua estrutura original de depoimentos e footer para o site não ficar vazio */
+   6. DEPOIMENTOS
+   ========================================= */
 .depoimentos { padding: 40px 20px; }
-.depoimentos-grid { display: flex; gap: 20px; overflow-x: auto; scrollbar-width: none; }
-.depoimento-card { flex: 0 0 280px; background: #111827; padding: 20px; border-radius: 15px; border: 1px solid #1f2933; }
-
-.faq { max-width: 800px; margin: 40px auto; padding: 0 20px; }
-.faq details { background: #111827; padding: 15px; border-radius: 10px; margin-bottom: 10px; }
-
-.footer { background: #020617; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+.depoimentos h2 { text-align: center; color: #22c55e; margin-bottom: 30px; font-size: 32px; font-weight: 800; }
+.depoimentos-grid { 
+    display: flex; gap: 20px; overflow-x: auto; padding: 20px 10px; scrollbar-width: none; scroll-snap-type: x mandatory;
+}
+.depoimentos-grid::-webkit-scrollbar { display: none; }
+.depoimento-card { 
+    flex: 0 0 85%; background: #111827; border: 1px solid #1f2933; padding: 30px; border-radius: 20px; scroll-snap-align: center;
+}
+.depoimento-perfil { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.depoimento-perfil img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid #22c55e; background: #fff; padding: 2px; }
 
 /* =========================================
-   7. RESPONSIVIDADE (PC)
-   ========================================= */
+   7. CHECKOUT E PREÇOS (3 PLANOS)
+   ========================================= */
+.checkout-container { padding: 20px 20px 60px; max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; }
+.pricing-grid { display: grid; grid-template-columns: 1fr; gap: 30px; width: 100%; }
+
+.pricing-card { 
+    background: #0f172a; border: 1px solid rgba(34, 197, 94, 0.3); 
+    border-radius: 24px; padding: 40px 25px; position: relative; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.pricing-card.featured { border: 2px solid #22c55e; background: #111e36; z-index: 2; }
+
+/* SELO DE DESCONTO NO PLANO 2 */
+.discount-badge {
+    position: absolute; top: -20px; right: -20px; background: linear-gradient(135deg, #ff0000, #b30000);
+    color: white; width: 70px; height: 70px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    border-radius: 50%; font-weight: 800; font-size: 18px; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+    border: 2px solid white; transform: rotate(15deg); animation: pulse-badge 2s infinite;
+}
+@keyframes pulse-badge { 0% { transform: rotate(15deg) scale(1); } 50% { transform: rotate(15deg) scale(1.1); } 100% { transform: rotate(15deg) scale(1); } }
+
+.current-price { display: flex; justify-content: center; align-items: baseline; color: #22c55e; }
+.current-price .amount { font-size: 54px; font-weight: 800; }
+.features-list { list-style: none; margin: 20px 0 30px; text-align: left; padding: 0 10px; }
+.features-list li { color: #94a3b8; font-size: 15px; margin-bottom: 12px; }
+
+/* =========================================
+   8. O QUE VOCÊ VAI RECEBER (GRID)
+   ========================================= */
+.recebe { padding: 40px 20px; text-align: center; }
+.recebe-grid { display: flex; gap: 20px; overflow-x: auto; padding: 20px; scrollbar-width: none; }
+.recebe-item { flex: 0 0 280px; background: #111827; border: 1px solid #1f2933; padding: 20px; border-radius: 15px; text-align: center; }
+.recebe-item img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
+
+/* =========================================
+   9. FAQ E FOOTER
+   ========================================= */
+.faq { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+.faq h2 { color: #22c55e; text-align: center; margin-bottom: 30px; }
+.faq details { background: #111827; border: 1px solid #1f2933; padding: 15px; border-radius: 10px; margin-bottom: 10px; text-align: left; }
+
+.footer { background: #020617; padding: 60px 20px 20px; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 40px; }
+.footer-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 40px; }
+.footer-column h3 span { color: #22c55e; }
+.security-badges-v2 { display: flex; gap: 20px; margin-top: 20px; }
+.payment-methods { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.payment-methods img { height: 24px; }
+
+/* =========================================
+   10. RESPONSIVIDADE (TABLET / PC)
+   ========================================= */
 @media (min-width: 900px) {
-    .pricing-grid, .fotos-container { 
-        justify-content: center; 
-        overflow: visible; 
-    }
-    .pricing-card { flex: 1; max-width: 350px; }
-    .foto-card { flex: 1; max-width: 250px; }
+    .pricing-grid { grid-template-columns: repeat(3, 1fr); }
+    .pricing-card.featured { transform: scale(1.05); }
+    .comparativo { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
+    .card-dor, .card-vitoria { flex: none; }
+    .depoimentos-grid { display: grid; grid-template-columns: repeat(2, 1fr); overflow: hidden; }
+    .depoimento-card { flex: none; }
+    .footer-container { grid-template-columns: 1.5fr 1fr 1fr; }
+    .recebe-grid { display: grid; grid-template-columns: repeat(3, 1fr); overflow: hidden; justify-content: center; }
+    .recebe-item { flex: none; }
 }
 
+/* ANIMAÇÃO REVEAL */
 .reveal { opacity: 0; transform: translateY(20px); transition: 0.6s all ease; }
 .reveal.active { opacity: 1; transform: translateY(0); }
