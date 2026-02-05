@@ -121,16 +121,97 @@ body { background: #0b0f14; color: #e5e7eb; overflow-x: hidden; }
 .estrelas { color: #fbbf24; font-size: 16px; letter-spacing: 2px; }
 
 /* =========================================
-   6. CHECKOUT E PREÇO
+   6. CHECKOUT E PREÇO (VERSÃO 3 PLANOS)
    ========================================= */
-.checkout-container { padding: 80px 20px; display: flex; justify-content: center; }
-.pricing-card { background: #0f172a; border: 2px solid #22c55e; border-radius: 24px; padding: 50px 30px; width: 100%; max-width: 450px; position: relative; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-.discount-badge { position: absolute; top: -15px; right: -10px; background: #ef4444; color: #fff; padding: 8px 15px; border-radius: 8px; font-weight: 800; transform: rotate(10deg); border: 2px solid #fff; z-index: 10; }
-.price-box { margin: 30px 0; }
-.old-price { display: block; margin-bottom: 5px; color: #94a3b8; text-decoration: line-through; }
-.current-price .amount { font-size: 64px; font-weight: 800; color: #22c55e; letter-spacing: -2px; }
-.installments { color: #94a3b8; font-size: 14px; margin-bottom: 20px; }
-.guarantee { margin-top: 25px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #94a3b8; font-size: 14px; }
+.checkout-container { 
+    padding: 40px 20px; 
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Padrão celular: um embaixo do outro */
+    gap: 30px;
+    align-items: center;
+}
+
+.pricing-card { 
+    background: #0f172a; 
+    border: 1px solid rgba(34, 197, 94, 0.3); 
+    border-radius: 24px; 
+    padding: 40px 25px; 
+    position: relative; 
+    text-align: center; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
+    transition: transform 0.3s ease;
+}
+
+/* Card em destaque (Plano 2 Telas) */
+.pricing-card.featured {
+    border: 2px solid #22c55e;
+    transform: scale(1.05);
+    background: #111e36;
+    z-index: 2;
+}
+
+.pricing-card h3 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.offer-badge {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.price-box { margin: 25px 0; }
+
+.current-price {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    color: #22c55e;
+}
+
+.current-price .currency { font-size: 20px; font-weight: 600; margin-right: 4px; }
+.current-price .amount { font-size: 54px; font-weight: 800; }
+.current-price .cents { font-size: 20px; font-weight: 600; }
+
+.features-list {
+    list-style: none;
+    margin: 20px 0 30px;
+    text-align: left;
+    padding: 0 10px;
+}
+
+.features-list li {
+    color: #94a3b8;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+/* Ajuste para Computador (Lado a Lado) */
+@media (min-width: 900px) {
+    .pricing-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas no PC */
+        gap: 20px;
+    }
+}
+
+/* Ajuste para não quebrar o destaque no celular */
+@media (max-width: 899px) {
+    .pricing-card.featured {
+        transform: scale(1);
+        margin: 20px 0;
+    }
+}
 
 /* =========================================
    7. GRID ITENS RECEBIDOS E FAQ
